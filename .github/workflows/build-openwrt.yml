@@ -80,8 +80,9 @@ jobs:
         make defconfig
 
     - name: SSH connection to Actions
-      uses: P3TERX/debugger-action@master
-      if: env.SSH_ACTIONS == 'true'
+   uses: be-engineer/debugger-action
+   uses: csexton/debugger-action@master
+   if: env.SSH_ACTIONS == 'true' || contains(github.event.action, 'sshx64稳定版')
 
     - name: Download package
       id: package
